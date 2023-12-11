@@ -13,5 +13,9 @@ namespace BoardService
             Columns = columns;
             Parts = new Part[lines, columns];
         }
+        public Part Part(int line, int column )
+        {
+            return Parts[line, column];
+        }
     }
 }
