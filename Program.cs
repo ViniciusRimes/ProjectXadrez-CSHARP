@@ -1,5 +1,5 @@
 ﻿using System;
-using Board;
+using BoardService;
 
 namespace ProjectXadrez
 {
@@ -7,6 +7,7 @@ namespace ProjectXadrez
     {
         static void Main(string[]args)
         {
+            Board board = new(8, 8);
             
         }
     }
