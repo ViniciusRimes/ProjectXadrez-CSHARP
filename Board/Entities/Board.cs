@@ -17,10 +17,31 @@ namespace BoardService
         {
             return Parts[line, column];
         }
+        public Part Part(Position pos)
+        {
+            return Parts[pos.Lines, pos.Columns];
+        }
+        public bool ExistsPart(Position pos)
+        {
+            CheckPosition(pos);
+            return Parts[pos.Lines, pos.Columns] != null;
+        }
         public void InsertPart(Part p, Position pos)
         {
+            if(ExistsPart(pos))
+            {
+                throw new BoardException("Já existe uma peça nesta posição!");
+            }
             Parts[pos.Lines, pos.Columns] = p;
             p.Position = pos;
+        } 
+        public bool CheckPosition(Position pos)
+        {
+            if(pos.Lines < 0 || pos.Lines >= Lines || pos.Columns < 0 || pos.Columns >= Columns)
+            {
+               throw new BoardException("Posição inválida!");
+            }
+            return true;
         }
     }
 }
