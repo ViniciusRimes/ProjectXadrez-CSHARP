@@ -17,5 +17,10 @@ namespace BoardService
         {
             return Parts[line, column];
         }
+        public void InsertPart(Part p, Position pos)
+        {
+            Parts[pos.Lines, pos.Columns] = p;
+            p.Position = pos;
+        }
     }
 }

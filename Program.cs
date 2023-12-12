@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Reflection.PortableExecutable;
 using BoardService;
 using ProjectXadrez.Entities;
+using ProjectXadrez.Xadrez.Entities;
 
 namespace ProjectXadrez
 {
@@ -10,6 +12,9 @@ namespace ProjectXadrez
         {
             Console.Clear();
             Board board = new(8, 8);
+            board.InsertPart(new Tower(Color.Branca, board), new Position(0,0) );
+            board.InsertPart(new Tower(Color.Branca, board), new Position(1,3) );
+            board.InsertPart(new King(Color.Branca, board), new Position(0, 4) );
             Screen.PrintBoard(board);
             
             
